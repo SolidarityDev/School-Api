@@ -15,18 +15,18 @@ const SchoolsList = () => {
             const renderSchools = schools.map(school =>
                     <div className="card">
                         <div className="name">
-                            {school.schoolName}
+                            Name: {school.schoolName}
                         </div>
 
                         <div className="address">
-                            {school.address.street},
+                            Adress: {school.address.street},
                             {school.address.city},
                             {school.address.state},
                             {school.address.stateFull},
                             {school.address.zip}
                         </div>
                         <div className="students">
-                            {school.schoolYearlyDetails.numberOfStudents}
+                            Students: {school.schoolYearlyDetails[0].numberOfStudents}
                         </div>
                     </div>
                 )
