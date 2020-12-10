@@ -39,30 +39,40 @@
   .marker-btn{
     background: none;
     border :none;
-    cursor : none;
+   
   }
   .marker-btn img{
     width: 20px;
     height: 20px;
   }
   .logo-site{
+    margin-top:12%;
     width:30%;
+    position:relative;
+    left:20%;
   }
   .title{
     font-size: 2.7em;
-    text-align: left;
     width:80%;
-    margin-left:18%;
+    position:relative;
+    left:30%;
     font-family: 'Ultra', serif;
+  }
+  
+  .graduate-logo{
+    position:relative;
+    width:20%;
+    left:20%;
+    top:15%;
   }
   .sentence{
     font-family: 'Ultra', serif;
     position: relative;
-    top:50%;
+    top:40%;
     right:2%;
+    left:20%;
     font-size: 0.9em;
   }
-
   .render{
     display:flex;
   }
@@ -71,7 +81,28 @@
     font-size:1.2em;
   }
   .inputs{
-margin:1%;
-width:100px;
-height:20px;
+    position:relative;
+    margin:1%;
+    margin-top:3%;
+    right:18%;
+  }
+  .btn-search{
+    position:relative;
+    margin:1%;
+    margin-top:1%;
+    right:13%;
+  }
+  
+  .myself{
+    position: absolute;
+    font-size:2em;
+    text-align:left;
+    font-family: 'Pacifico', cursive;
+    left:5%;
+    bottom:3%;
+  }
+  .mapboxgl-map{
+    margin-left:3%;
+    margin-top:3%;
+  
   }

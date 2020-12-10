@@ -1,6 +1,7 @@
 import React from 'react'
 import { connect} from 'react-redux'
 import { requestAllSchoolsByST } from "../actions"
+import Button from 'react-bootstrap/Button';
 
 
 const FinderSchool = ({ dispatch }) => {
@@ -8,6 +9,7 @@ const FinderSchool = ({ dispatch }) => {
     let inputQuery
     return (
         <div>
+            <p className="myself">Rachid ©</p>
             <form onSubmit={e => {
                 e.preventDefault()
                 if (!inputSt.value.trim()) {
@@ -21,9 +23,7 @@ const FinderSchool = ({ dispatch }) => {
                 <input className="inputs" ref={node => inputSt = node} placeholder={'State'}/>
                 
                 <input className="inputs" ref={node2 => inputQuery = node2}  placeholder={'Find by name'}/>
-                <button type="submit">
-                    Search for schools
-                </button>
+                <Button type="submit" variant="outline-dark" className="btn-search">Search</Button>
             </form>
             
         </div>

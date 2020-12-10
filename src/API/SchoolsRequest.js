@@ -1,7 +1,7 @@
 import axios from 'axios';
 
-const appID = '44ac36d9';
-const appKey = 'a1cfb6f9f15aafe376aea4be7cdfaabf';
+const appID = '7de57a8a';
+const appKey = 'd3873df87adc8c5a429494964e869800';
 
 const apiUrl = "https://api.schooldigger.com/v1.2/schools";
 

@@ -6,18 +6,22 @@ import {useSelector} from "react-redux";
 import ReactMapGL, {Marker} from "react-map-gl";
 import SchoolIcon from "../images/school-icon.svg"
 import Teacher from "../images/teacher.svg"
+import Graduate from "../images/graduate-logo.svg"
 const TOKEN = "pk.eyJ1Ijoic29saWRhcml0eWRldiIsImEiOiJja2loZG9ocGYwZ2loMzNvM2Z0cHp2MXhiIn0.SKo-KQStnLaghXGGHKn0gQ"
 
-const SchoolsList = () => {
 
+const SchoolsList = () => {
+ 
     const [viewport, setViewport] = useState({
         latitude: 39.7837304,
         longitude: -100.4458825,
-        width: "100vw",
-        height: "100vh",
-        zoom: 3.5
+        width: "1000px",
+        height: "700px",
+        zoom: 3.5,
       });
         const schools  = useSelector(getSchoolsList)
+                
+       
         if (schools !== undefined){
 
         
@@ -46,6 +50,7 @@ const SchoolsList = () => {
                     mapStyle="mapbox://styles/solidaritydev/ckihu1rz211271apf0sl9sgau"
                     onViewportChange={viewport =>{
                     setViewport(viewport);
+                    
                     }}
                     > 
                     {schools.map(school => 
@@ -64,15 +69,17 @@ const SchoolsList = () => {
                 <img className ="logo-site" src={Teacher} alt="logo-website"></img>
             <p className="title">FIND YOUR SCHOOL</p>
             <p className="sentence">MAKE OUR SCHOOLS GREAT AGAIN</p>
-           
+                <img className ="graduate-logo" src={Graduate} alt="logo-website"></img>
             <div className="cards">{renderSchools}
             </div>
      
             </div>
     </div>
     }
-    
-}
+
+     
+    }
+
 
 SchoolsList.propTypes = {
     schools: PropTypes.arrayOf(PropTypes.shape({
@@ -80,6 +87,8 @@ SchoolsList.propTypes = {
         schoolName: PropTypes.string.isRequired,
         address: PropTypes.string.isRequired,
         numberOfStudents: PropTypes.string.isRequired,
+        lat: PropTypes.number,
+        long: PropTypes.number,
     }).isRequired).isRequired,
 }
 export default SchoolsList
