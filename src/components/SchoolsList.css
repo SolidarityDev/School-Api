@@ -94,12 +94,12 @@
   }
   
   .myself{
-    position: absolute;
+    position: relative;
     font-size:2em;
     text-align:left;
     font-family: 'Pacifico', cursive;
     left:5%;
-    bottom:3%;
+    margin-top:5%;
   }
   .mapboxgl-map{
     margin-left:3%;

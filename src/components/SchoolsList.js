@@ -45,7 +45,8 @@ const SchoolsList = () => {
                 )
                 
                 
-        return <div className="render" >
+        return <div>
+            <div className="render" >
                 <ReactMapGL className="map" {...viewport} mapboxApiAccessToken={TOKEN}
                     mapStyle="mapbox://styles/solidaritydev/ckihu1rz211271apf0sl9sgau"
                     onViewportChange={viewport =>{
@@ -72,8 +73,9 @@ const SchoolsList = () => {
                 <img className ="graduate-logo" src={Graduate} alt="logo-website"></img>
             <div className="cards">{renderSchools}
             </div>
-     
             </div>
+    </div>
+    <p className="myself">Rachid ©</p>
     </div>
     }
 

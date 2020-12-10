@@ -9,7 +9,6 @@ const FinderSchool = ({ dispatch }) => {
     let inputQuery
     return (
         <div>
-            <p className="myself">Rachid ©</p>
             <form onSubmit={e => {
                 e.preventDefault()
                 if (!inputSt.value.trim()) {
@@ -25,7 +24,6 @@ const FinderSchool = ({ dispatch }) => {
                 <input className="inputs" ref={node2 => inputQuery = node2}  placeholder={'Find by name'}/>
                 <Button type="submit" variant="outline-dark" className="btn-search">Search</Button>
             </form>
-            
         </div>
     )
 }
