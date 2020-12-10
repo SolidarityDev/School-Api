@@ -2,6 +2,7 @@ import React from 'react'
 import { connect} from 'react-redux'
 import { requestAllSchoolsByST } from "../actions"
 
+
 const FinderSchool = ({ dispatch }) => {
     let inputSt
     let inputQuery
@@ -16,12 +17,15 @@ const FinderSchool = ({ dispatch }) => {
                 inputSt.value = ''
                 inputQuery.value = ''
             }}>
-                <input ref={node => inputSt = node} placeholder={'State'}/>
-                <input ref={node2 => inputQuery = node2}  placeholder={'Find by name'}/>
+              
+                <input className="inputs" ref={node => inputSt = node} placeholder={'State'}/>
+                
+                <input className="inputs" ref={node2 => inputQuery = node2}  placeholder={'Find by name'}/>
                 <button type="submit">
-                    Search for schools by States
+                    Search for schools
                 </button>
             </form>
+            
         </div>
     )
 }
