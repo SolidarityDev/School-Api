@@ -1,7 +1,9 @@
 import axios from 'axios';
-
-const appID = '7de57a8a'; //Enter your own appID.
-const appKey = 'd3873df87adc8c5a429494964e869800'; //Enter your own appKey.
+import * as LocalApi from "/Users/supermac/Desktop/Emmaus-School-Api/school-finder-front/src/stub/local-api.json"
+import {stubIsEnables} from "../reducers/Schools.js"
+import { enablesStub } from '../actions/index.js';
+const appID = '779b2191'; //Enter your own appID.
+const appKey = 'af8a21b8eae8eed3665f131394ad85e7'; //Enter your own appKey.
 
 const apiUrl = "https://api.schooldigger.com/v1.2/schools";
 
@@ -26,9 +28,18 @@ httpClient.interceptors.request.use(function (config) {
 
 export const retrieveSchools = (st, query = null, perPage = 10) => {
     let args = [`st=${st}`, `perPage=${perPage}`];
-
+    
     if (query) {
     args.push(`q=${query}`)
+    }
+    if (enablesStub){
+        axios.get({LocalApi})
+        .then(function(response){
+          console.log(response.data);
+        })
+        .catch(function(error){
+          alert('error');
+        });
     }
 
     return httpClient.get(`${apiUrl}?${args.join('&')}`);

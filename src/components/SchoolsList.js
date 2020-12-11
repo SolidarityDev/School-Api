@@ -71,11 +71,11 @@ const SchoolsList = () => {
             <p className="title">FIND YOUR SCHOOL</p>
             <p className="sentence">MAKE OUR SCHOOLS GREAT AGAIN</p>
                 <img className ="graduate-logo" src={Graduate} alt="logo-website"></img>
-            <div className="cards">{renderSchools}
-            </div>
-            </div>
+            </div>     
     </div>
-    <p className="myself">Rachid ©</p>
+    <div className="cards">{renderSchools}
+            </div>
+     <p className="myself">Rachid ©</p>
     </div>
     }
 

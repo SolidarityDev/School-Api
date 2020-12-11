@@ -1,8 +1,9 @@
 import * as types from '../constants/ActionTypes'
 import * as API from '../API/SchoolsRequest'
-
+import {stubIsEnables} from '../reducers/Schools'
 
 export const requestAllSchoolsByST = (dispatch, st, query, perPage = 20) => {
+   
     return API.retrieveSchools(st,query, perPage)
         .then(response => dispatch(receiveAllSchoolsByST(response.data)))
         .catch(error => {
@@ -28,4 +29,12 @@ export const clearAllSchools = () => ({
 
 export const clearAllSchoolsCompleted = () => ({
     type: types.CLEAR_SCHOOLS_COMPLETED
+})
+
+export const enablesStub = () => ({
+    type: types.ENABLES_STUB
+})
+
+export const disablesStub = () => ({
+    type: types.DISABLES_STUB
 })

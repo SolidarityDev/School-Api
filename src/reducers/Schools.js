@@ -8,7 +8,8 @@ export const schoolInitialSate = {
     current_page: 0,
     perPage: 20,
     schoolsList: [],
-    error: null
+    error: null,
+    stub:false
 }
 
 // Reducer
@@ -50,6 +51,14 @@ export default function schools(state = schoolInitialSate, action) {
                 loaded: true,
                 error: action.error
             })
+        case types.ENABLES_STUB:
+            return Object.assign({}, state, {
+                stub: true 
+                })
+            case types.DISABLES_STUB:
+            return Object.assign({}, state, {
+                stub: false
+                })
         default:
             return state
     }
@@ -58,3 +67,4 @@ export default function schools(state = schoolInitialSate, action) {
 // Selector
 export const schoolsLoaded  = state => state.schools.loading === false && state.schools.loaded === true && state.schools.error === null;
 export const getSchoolsList = state => state.schools.schoolsList;
+export const stubIsEnables = state => state.schools.stub;
