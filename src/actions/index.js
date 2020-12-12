@@ -1,6 +1,6 @@
 import * as types from '../constants/ActionTypes'
 import * as API from '../API/SchoolsRequest'
-import {stubIsEnables} from '../reducers/Schools'
+
 
 export const requestAllSchoolsByST = (dispatch, st, query, perPage = 20) => {
    

@@ -2,7 +2,6 @@ import React from 'react'
 import {connect} from 'react-redux'
 import {requestAllSchoolsByST, disablesStub, enablesStub } from "../actions"
 import Button from 'react-bootstrap/Button';
-import * as LocalApi from "/Users/supermac/Desktop/Emmaus-School-Api/school-finder-front/src/stub/local-api.json"
 
 const FinderSchool = ({ dispatch }) => {
 
@@ -26,10 +25,7 @@ const FinderSchool = ({ dispatch }) => {
                 if (!inputSt.value.trim()) {
                     return
                 }
-                if(enablesStub)
-                {
-                    alert('hello')
-                }
+                
                 requestAllSchoolsByST(dispatch, inputSt.value, inputQuery.value)
                 inputSt.value = ''
                 inputQuery.value = ''
