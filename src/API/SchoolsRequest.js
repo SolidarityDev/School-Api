@@ -1,5 +1,5 @@
 import axios from 'axios';
-import * as LocalApi from "/Users/supermac/Desktop/Emmaus-School-Api/school-finder-front/src/stub/local-api.json"
+import * as LocalApi from "../stub/local-api.json"
 import {stubIsEnables} from "../reducers/Schools.js"
 import { enablesStub } from '../actions/index.js';
 const appID = '779b2191'; //Enter your own appID.
