@@ -1,6 +1,5 @@
 import axios from 'axios';
 import * as LocalApi from "../stub/local-api.json"
-import {stubIsEnables} from "../reducers/Schools.js"
 import { enablesStub } from '../actions/index.js';
 const appID = '779b2191'; //Enter your own appID.
 const appKey = 'af8a21b8eae8eed3665f131394ad85e7'; //Enter your own appKey.
