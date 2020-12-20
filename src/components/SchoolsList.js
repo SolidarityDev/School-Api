@@ -39,7 +39,7 @@ const SchoolsList = () => {
                             {school.address.zip}
                         </div>
                         <div className="students">
-                        <span> Students: </span> {school.schoolYearlyDetails[0].numberOfStudents}
+                        {/* <span> Students: </span> {school.schoolYearlyDetails[0].numberOfStudents} */}
                         </div>
                     </div>
                 )

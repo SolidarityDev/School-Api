@@ -1,6 +1,7 @@
 import axios from 'axios';
 import * as LocalApi from "../stub/local-api.json"
 import { enablesStub } from '../actions/index.js';
+import { stubIsEnables } from '../reducers/Schools.js';
 const appID = '779b2191'; //Enter your own appID.
 const appKey = 'af8a21b8eae8eed3665f131394ad85e7'; //Enter your own appKey.
 
@@ -17,7 +18,8 @@ const httpClient = axios.create({
 // Add a request interceptor
 httpClient.interceptors.request.use(function (config) {
     // Do something before request is sent
-    config.url = config.url + '&'+ [`appId=${appID}`, `appKey=${appKey}`].join('&') ;
+    // if(!enablesStub())
+        config.url = config.url + '&'+ [`appId=${appID}`, `appKey=${appKey}`].join('&') ;
 
     return config;
 }, function (error) {
@@ -25,21 +27,16 @@ httpClient.interceptors.request.use(function (config) {
     return Promise.reject(error);
 });
 
+
 export const retrieveSchools = (st, query = null, perPage = 10) => {
+    // if (enablesStub()){
+    //     console.log("Using stub data :", stubIsEnables)
+    //     return  httpClient.get("/stub/local-api.json");
+    // }
     let args = [`st=${st}`, `perPage=${perPage}`];
     
-    if (query) {
-    args.push(`q=${query}`)
-    }
-    if (enablesStub){
-        axios.get({LocalApi})
-        .then(function(response){
-          console.log(response.data);
-        })
-        .catch(function(error){
-          alert('error');
-        });
-    }
+    if (query) 
+        args.push(`q=${query}`)
 
     return httpClient.get(`${apiUrl}?${args.join('&')}`);
 }

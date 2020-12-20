@@ -18,6 +18,7 @@ export default function schools(state = schoolInitialSate, action) {
         case types.REQUEST_SCHOOLS_FROM_ST:
             return Object.assign({}, state, {
                 loading: true,
+                loaded:false,
                 perPage: action.perPage,
                 error: null,
             })

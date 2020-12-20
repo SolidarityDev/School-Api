@@ -4,6 +4,7 @@ import * as API from '../API/SchoolsRequest'
 
 export const requestAllSchoolsByST = (dispatch, st, query, perPage = 20) => {
    
+    // dispatch({type : types.RECEIVE_SCHOOLS_FROM_ST}) 
     return API.retrieveSchools(st,query, perPage)
         .then(response => dispatch(receiveAllSchoolsByST(response.data)))
         .catch(error => {
