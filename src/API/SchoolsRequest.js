@@ -1,5 +1,4 @@
 import axios from 'axios';
-import * as LocalApi from "../stub/local-api.json"
 import { enablesStub } from '../actions/index.js';
 import { stubIsEnables } from '../reducers/Schools.js';
 const appID = '779b2191'; //Enter your own appID.

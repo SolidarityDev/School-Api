@@ -3,11 +3,30 @@ import React, {useState} from 'react'
 import PropTypes from 'prop-types'
 import  {getSchoolsList} from "../reducers/Schools";
 import {useSelector} from "react-redux";
+import { makeStyles } from '@material-ui/core/styles';
+import Card from '@material-ui/core/Card';
+import CardActionArea from '@material-ui/core/CardActionArea';
+import CardActions from '@material-ui/core/CardActions';
+import CardContent from '@material-ui/core/CardContent';
+import CardMedia from '@material-ui/core/CardMedia';
+import Button from '@material-ui/core/Button';
+import Typography from '@material-ui/core/Typography';
+import SchoolPic from '../images/school.jpeg'
 import ReactMapGL, {Marker} from "react-map-gl";
 import SchoolIcon from "../images/school-icon.svg"
 import Teacher from "../images/teacher.svg"
 import Graduate from "../images/graduate-logo.svg"
+import StarRatings from 'react-star-ratings';
 const TOKEN = "pk.eyJ1Ijoic29saWRhcml0eWRldiIsImEiOiJja2loZG9ocGYwZ2loMzNvM2Z0cHp2MXhiIn0.SKo-KQStnLaghXGGHKn0gQ"
+
+const useStyles = makeStyles({
+  root: {
+    maxWidth: 345,
+  },
+  media: {
+    height: 140,
+  },
+});
 
 
 const SchoolsList = () => {
@@ -20,18 +39,28 @@ const SchoolsList = () => {
         zoom: 3.5,
       });
         const schools  = useSelector(getSchoolsList)
-                
+        const classes = useStyles();
        
         if (schools !== undefined){
+            console.log(schools)
 
-        
+            
             const renderSchools = schools.map(school =>
-                    <div className="card">
-                        <div className="name">
-                            <span key={school.schoolid}>Name:</span> {school.schoolName}
-                        </div>
-
-                        <div className="address">
+                <Card>
+                <CardActionArea>
+                <CardMedia
+                  className={classes.media}
+                  image={SchoolPic}
+                  title="Contemplative Reptile"
+                />
+                <CardContent>
+                  <Typography gutterBottom variant="h5" component="h2">
+                    <div>
+                         <span key={school.schoolid}></span> {school.schoolName}
+                    </div>
+                  </Typography>
+                  <Typography variant="body2" color="textSecondary" component="p">
+                  <div className="address">
                             <span>Address:</span> {school.address.street},
                             {school.address.city},
                             {school.address.state},
@@ -39,11 +68,29 @@ const SchoolsList = () => {
                             {school.address.zip}
                         </div>
                         <div className="students">
-                        {/* <span> Students: </span> {school.schoolYearlyDetails[0].numberOfStudents} */}
+                            <span>Students:</span>  {school.schoolYearlyDetails[0].numberOfStudents}
                         </div>
-                    </div>
+                  </Typography>
+                  {school.rankHistory !== null && school.rankHistory.length > 0 && <StarRatings
+                    rating={school.rankHistory[0].rankStars}
+                    starRatedColor="purple"
+                    numberOfStars={6}
+                    name='rating'
+                    starDimension="30px"
+                />}
+                </CardContent>
+              </CardActionArea>
+              <CardActions>
+                <Button size="small" color="primary">
+                  Share
+                </Button>
+                <Button size="small" color="primary">
+                  Learn More
+                </Button>
+              </CardActions>
+
+         </Card>
                 )
-                
                 
         return <div>
             <div className="render" >

@@ -15,7 +15,7 @@ const middleware = [ thunk ]
 const composedEnhancer = composeWithDevTools(applyMiddleware(...middleware))
 
 
-const store = createStore(
+export const store = createStore(
   rootReducer,
   composedEnhancer
 )
