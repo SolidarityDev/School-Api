@@ -1,0 +1,5 @@
+const FavoritesListView = () => (
+    <div>
+
+    </div>
+);

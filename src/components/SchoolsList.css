@@ -47,31 +47,26 @@
     height: 20px;
   }
   .logo-site{
-    margin-top:12%;
-    width:30%;
+    margin-top:2%;
+    width:8%;
     position:relative;
-    left:55%;
+    right:40%;
   }
   .title{
-    font-size: 2.7em;
-    width:80%;
+    font-size: 1.0em;
     position:relative;
-    left:65%;
+    right:40%;
     font-family: 'Ultra', serif;
   }
   
   .graduate-logo{
     position:relative;
-    width:20%;
-    left:55%;
-    top:15%;
+    width:5%;
+    margin-top:10%;
   }
   .sentence{
     font-family: 'Ultra', serif;
     position: relative;
-    top:40%;
-    right:2%;
-    left:55%;
     font-size: 0.9em;
   }
   .render{
@@ -84,14 +79,14 @@
   .inputs{
     position:relative;
     margin:1%;
-    margin-top:3%;
-    right:18%;
+    top:2%;
+    margin-bottom:5%;
   }
   .btn-search{
     position:relative;
     margin:1%;
     margin-top:1%;
-    right:13%;
+    left:3%;
   }
   
   .myself{

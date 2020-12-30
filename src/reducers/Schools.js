@@ -22,7 +22,7 @@ export default function schools(state = schoolInitialSate, action) {
                 perPage: action.perPage,
                 error: null,
             })
-        case types.RECEIVE_SCHOOLS_FROM_ST:
+        case types.RECEIVED_SCHOOLS_FROM_ST:
             return Object.assign({}, state, {
                 loading: false,
                 loaded: true,
@@ -56,10 +56,16 @@ export default function schools(state = schoolInitialSate, action) {
             return Object.assign({}, state, {
                 stub: true 
                 })
-            case types.DISABLES_STUB:
+        case types.DISABLES_STUB:
             return Object.assign({}, state, {
                 stub: false
                 })
+        case types.RECEIVE_SCHOOLS_ADD_TO_FAV:
+            return Object.assign({}, state, {
+                loading: false,
+                loaded: true,
+                error: action.error
+            })
         default:
             return state
     }
@@ -69,3 +75,5 @@ export default function schools(state = schoolInitialSate, action) {
 export const schoolsLoaded  = state => state.schools.loading === false && state.schools.loaded === true && state.schools.error === null;
 export const getSchoolsList = state => state.schools.schoolsList;
 export const stubIsEnables = state => state.schools.stub;
+export const isSchoolLoading = state => state.schools.loading;
+export const getFavSchoolsList = state => state.schools.favschoolslist;

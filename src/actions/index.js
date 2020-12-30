@@ -4,7 +4,7 @@ import * as API from '../API/SchoolsRequest'
 
 export const requestAllSchoolsByST = (dispatch, st, query, perPage = 20) => {
    
-    // dispatch({type : types.RECEIVE_SCHOOLS_FROM_ST}) 
+    dispatch({type : types.REQUEST_SCHOOLS_FROM_ST}) 
     return API.retrieveSchools(st,query, perPage)
         .then(response => dispatch(receiveAllSchoolsByST(response.data)))
         .catch(error => {
@@ -15,7 +15,7 @@ export const requestAllSchoolsByST = (dispatch, st, query, perPage = 20) => {
 }
 
 export const receiveAllSchoolsByST = (response) => ({
-    type: types.RECEIVE_SCHOOLS_FROM_ST,
+    type: types.RECEIVED_SCHOOLS_FROM_ST,
     response: response
 })
 
@@ -38,4 +38,8 @@ export const enablesStub = () => ({
 
 export const disablesStub = () => ({
     type: types.DISABLES_STUB
+})
+
+export const addToFavSchools = () => ({
+    type: types.RECEIVE_SCHOOLS_ADD_TO_FAV
 })
